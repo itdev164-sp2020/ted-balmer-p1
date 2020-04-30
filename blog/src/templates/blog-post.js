@@ -1,16 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import { Layout } from "../components/Layout"
+import { H1 } from "../components/Heading"
 import styled from 'styled-components'
-
+/*
 const H1 = styled.h1`
     font-weight: bold;
     text-align: center;
     font-family: 'Georgia', 'Times New Roman', Times, serif;
     border-bottom: 1px solid #eee;
 `
-
+*/
 const HeroImage = styled.img`
     width: 100%;
     height: 300px;

@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Ted's Website of Awesomeness`,
-    description: `This web site is all about Ted.`,
+    title: `Celtic Treen`,
+    description: `Hand crafted objects from wood.`,
     author: `Ted Balmer`,
     contact: {
       name: `Ted Balmer`,
-      company: `MATC`,
+      company: `MarchTwenty`,
       email: `email@email.com`,
       address: `123 Fake St. Milwaukee, WI`
     }

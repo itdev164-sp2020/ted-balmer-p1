@@ -37,4 +37,4 @@ const Image = () => {
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} alt={`${data.site.siteMetadata.contact.name} logo`} />
 }
 
-export default Image
+export { Image }

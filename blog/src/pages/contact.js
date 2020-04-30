@@ -1,10 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import { Layout } from "../components/Layout"
 import styled from 'styled-components'
-import Image from "../components/image2"
-import SEO from "../components/seo"
 
 const H1 = styled.h1`
     font-weight: bold;
@@ -18,49 +16,36 @@ const Content = styled.div`
         line-height: 1.6em;
     }
 
-    figure {
+    img {
         text-align: center;
-    }
-
-    a {
-        color: darkslateblue;
-        &:hover {
-            text-decoration: none;
-            color: black;
-        }
+        width: 200px;
     }
 `
 
 const Contact = ({ data }) => {
-    const { name, address, email } = data.site.siteMetadata.contact;
+    const { title, body } = data.contentfulPage;
+    
     return (
         <Layout>
-            <SEO title="Contact" />
-            <H1>Drop me a line</H1>
-            <Content>
-                <p>{`You can email ${name} at `} <a href={`mailto:${email}`}>{`${email}`}</a> {`or you can visit him at ${address}`}.</p>
-
-                <figure style={{ maxWidth: `200px`, marginBottom: `1.45rem` }}>
-                    <Image />
-                    <figcaption>Follow the map to me</figcaption>
-                </figure>
-            </Content>
+            <H1>{title}</H1>
+            <Content dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html }}></Content>
         </Layout>
-    )
+    );
 }
 
 export default Contact
 
-export const query = graphql`
-    query {
-        site {
-            siteMetadata {
-                contact {
-                    name
-                    email
-                    address
-                }
+export const pageQuery = graphql`
+{
+    contentfulPage(slug: {eq: "contact"}) {
+        slug
+        title
+        id
+        body {
+            childMarkdownRemark {
+                html
             }
         }
     }
+}
 `

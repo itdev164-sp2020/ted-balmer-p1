@@ -21,6 +21,14 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                 }
             }
+            allContentfulPage {
+                edges {
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
         }
         `).then(result => {
             if (result.errors) {

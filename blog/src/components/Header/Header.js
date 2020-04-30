@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Image from "../components/image"
+import { Image } from "../Image"
+import { H1 } from '../Heading'
 import styled from 'styled-components'
 
 const Outer = styled.header`
@@ -17,9 +18,9 @@ const Inner = styled.div`
   padding: 1.45rem 1.0875rem;  
 `
 
-const H1 = styled.h1`
-  margin: 0;
-`
+//const H1 = styled.h1`
+//  margin: 0;
+//`
 
 const StyledLink = styled(Link)`
   color: white;
@@ -60,4 +61,4 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+export { Header }
