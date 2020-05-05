@@ -58,6 +58,7 @@ export const pageQuery = graphql`
         contentfulBlogPost(slug: {eq: $slug}) {
             title
             slug
+            publishDate(formatString: "MMMM DD, YYYY")
             body {
                 childMarkdownRemark {
                     html

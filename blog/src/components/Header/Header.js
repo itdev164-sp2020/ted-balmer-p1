@@ -5,9 +5,12 @@ import { Image } from "../Image"
 import { H1 } from '../Heading'
 import styled from 'styled-components'
 
+import HeroBG from '../../images/hero-image.jpg'
+
 const Outer = styled.header`
-  background-color: ${props => props.theme.baseBackground.backgroundColor};
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230b6fd0' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M8 0v20L0 10M16 0v10L8 0M16 10v10H8'/%3E%3C/g%3E%3C/svg%3E");
+  /* background-color: ${props => props.theme.baseBackground.backgroundColor}; */
+  background: ${props => props.theme.baseBackground.backgroundColor} url('${HeroBG}') no-repeat 50% 50%;
+  background-size: cover;  
   margin-bottom: 1.45em;
   text-align: center;
 `
@@ -18,9 +21,10 @@ const Inner = styled.div`
   padding: 1.45rem 1.0875rem;  
 `
 
-//const H1 = styled.h1`
-//  margin: 0;
-//`
+const H1Hidden = styled(H1)`
+  margin: 0;
+  display: none;
+`
 
 const StyledLink = styled(Link)`
   color: white;
@@ -31,24 +35,24 @@ const StyledLink = styled(Link)`
   }
 `
 
-const Logo = styled.div`
-  width: 100px;
+const LogoFrame = styled.div`
+  width: 300px;
   margin: 0 auto;
 `
 
 const Header = ({ siteTitle }) => (
   <Outer>
     <Inner>
-      <Logo>
+      <LogoFrame>
         <StyledLink to="/">
-          <Image />
+          <Image alt={siteTitle} />
         </StyledLink>
-      </Logo>
-      <H1>
+      </LogoFrame>
+      <H1Hidden>
         <StyledLink to="/">
           {siteTitle}
         </StyledLink>
-      </H1>
+      </H1Hidden>
     </Inner>
   </Outer>
 )

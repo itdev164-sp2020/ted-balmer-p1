@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => (
         <ListItem p={3}>
           <Link to={edge.node.slug} key={edge.node.id}>{edge.node.title}</Link>
           <div>
-            <img src={edge.node.heroImage.fluid.src} alt="Hero Image" />
+            <img src={edge.node.heroImage.fluid.src} alt={edge.node.title} />
           </div>
           <div>{edge.node.body.childMarkdownRemark.excerpt}</div>
         </ListItem>
@@ -100,7 +100,7 @@ export const query = graphql`
           id
           slug
           title
-          publishDate
+          publishDate(formatString: "MMMM DD, YYYY")
           body {
             childMarkdownRemark {
               excerpt

@@ -1,13 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `Celtic Treen`,
-    description: `Hand crafted objects from wood.`,
-    author: `Ted Balmer`,
+    shorttitle: `Celtic Treen`,
+    subtitle: `Balmer Design Studio`,
+    description: `Balmer Design Studio - Hand crafted objects from wood.`,
+    author: `Ted Balmer | marchtwenty.com`,
+    themecolor: `#ffffff`,
+    themelogo: `src/images/m20-logo.png`,
     contact: {
       name: `Ted Balmer`,
       company: `MarchTwenty`,
-      email: `email@email.com`,
-      address: `123 Fake St. Milwaukee, WI`
+      email: `tbalmer@marchtwenty.com`,
+      address: `Cedarburg, WI`
     }
   },
   plugins: [

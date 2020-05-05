@@ -12,6 +12,7 @@ import styled, { ThemeProvider } from 'styled-components'
 
 import { Default } from '../../themes/Default'
 import { Header } from "../Header"
+import { Navigation } from "../Navigation"
 import GlobalStyle from '../GlobalStyle'
 
 const Content = styled.div`
@@ -20,7 +21,7 @@ const Content = styled.div`
   padding: 0 1.0875rem 1.45rem;
 `
 
-const ExtLink = styled(Link)`
+const ExtLink = styled.a`
   color: black;
   &:hover {
     opacity: 0.7;
@@ -69,19 +70,13 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={Default}>
     <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Nav>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/about/'>About</Link></li>
-          <li><Link to='/contact/'>Contact</Link></li>
-        </ul>
-      </Nav>
+      {Navigation}
       <Content>
         <main>{children}</main>
         <Footer>
-          © {new Date().getFullYear()} {data.site.siteMetadata.author}. Built with
+          © {new Date().getFullYear()} <ExtLink href="https://www.marchtwenty.com">{data.site.siteMetadata.author}</ExtLink>. Built with
           {` `}
-          <ExtLink to="https://www.gatsbyjs.org">Gatsby</ExtLink>
+          <ExtLink href="https://www.gatsbyjs.org">Gatsby</ExtLink>
         </Footer>
       </Content>
     </ThemeProvider>
