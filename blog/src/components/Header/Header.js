@@ -8,7 +8,6 @@ import styled from 'styled-components'
 import HeroBG from '../../images/hero-image.jpg'
 
 const Outer = styled.header`
-  /* background-color: ${props => props.theme.baseBackground.backgroundColor}; */
   background: ${props => props.theme.baseBackground.backgroundColor} url('${HeroBG}') no-repeat 50% 50%;
   background-size: cover;  
   margin-bottom: 1.45em;
@@ -26,7 +25,7 @@ const H1Hidden = styled(H1)`
   display: none;
 `
 
-const StyledLink = styled(Link)`
+const HomeLink = styled(Link)`
   color: white;
   text-decoration: none;
   font-weight: 400;
@@ -38,20 +37,22 @@ const StyledLink = styled(Link)`
 const LogoFrame = styled.div`
   width: 300px;
   margin: 0 auto;
+  /* filter: invert(100%); */
 `
+
 
 const Header = ({ siteTitle }) => (
   <Outer>
     <Inner>
       <LogoFrame>
-        <StyledLink to="/">
+        <HomeLink to="/">
           <Image alt={siteTitle} />
-        </StyledLink>
+        </HomeLink>
       </LogoFrame>
       <H1Hidden>
-        <StyledLink to="/">
+        <HomeLink to="/">
           {siteTitle}
-        </StyledLink>
+        </HomeLink>
       </H1Hidden>
     </Inner>
   </Outer>

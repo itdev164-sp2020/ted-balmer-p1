@@ -24,6 +24,17 @@ Tedilize 2.0 - Normalization and Base Styling
     tab-size: 4;
 }
 
+::-moz-selection { 
+    text-shadow: none;
+    background-color: #ddd;
+}
+
+::selection { 
+    text-shadow: none;
+    background-color: #ddd;
+}
+
+
 /* Default system sans-serif font */
 
 html {
@@ -71,6 +82,12 @@ body {
 
 main {
     display: block;
+}
+
+header,
+footer,
+hr {
+    clear: both;
 }
 
 hr {
@@ -128,7 +145,7 @@ sup {
 
 mark {
     background-color: #ff3;
-    border-radius: 3px;
+    border-radius: 0.2em;
     padding: 0 0.2em;
 }
 
@@ -227,16 +244,19 @@ ol {
     padding-left: 2em;
 }
 
-nav ol,
-nav ul {
-    list-style: none;
-    padding: 0;
+dd {
+    margin-left: 2em;
 }
 
 dt {
     font-weight: bold;
 }
 
+nav ol,
+nav ul {
+    list-style: none;
+    padding: 0;
+}
 
 /*********************
 Monospace elements
@@ -262,8 +282,8 @@ pre {
 
 code {
     background: #ddd;
-    padding: 1px 4px;
-    border-radius: 2px;
+    padding: 0.1em 0.2em;
+    border-radius: 0.3rem;
 }
 
 kbd {
@@ -287,6 +307,7 @@ pre code {
     color: inherit;
     word-break: normal;
     display: inline-block;
+    padding: 0.8em;
 }
 
 
@@ -347,7 +368,7 @@ figure > a::after {
 
 figcaption {
     text-align: center;
-    padding: 8px 2px 2px 2px;
+    padding: 0.6em 0.2em;
     font-size: 0.9em;
     line-height: 1.2em;
 }
@@ -403,6 +424,7 @@ a[href] {
     /* color: #007bff; */
     color: #111;
     background-color: transparent;
+    -webkit-tap-highlight-color: rgba(220,220,220,0.4);
     -webkit-text-decoration-skip: ink;
     text-decoration-skip: ink;
 }
@@ -443,7 +465,7 @@ dialog {
     top: 0;
     /*
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(0,-50%);
     */
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -473,12 +495,6 @@ input:not(:focus):invalid {
     color: #d00;
 }
 
-/*
-input:not(:empty):invalid {
-    caret-color: red;
-}
-*/
-
 /* Input Placeholder Color */
 
 :-ms-input-placeholder {
@@ -497,6 +513,7 @@ input:not(:empty):invalid {
 ::placeholder {
     color: #888;
 }
+
 
 [disabled],
 [disabled] + label[for],
@@ -527,6 +544,7 @@ textarea {
 
 [role='button'],
 [role='textbox'],
+[role='listbox'],
 input::-webkit-file-upload-button,
 button,
 input,
@@ -538,13 +556,13 @@ textarea {
     letter-spacing: inherit;
     padding: 0.25em 0.375em;
     max-width: 100%;
+    text-transform: none;
 }
 
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 0;
-    text-transform: none;
     text-overflow: ellipsis;
     cursor: pointer;
     overflow: hidden;
@@ -567,7 +585,6 @@ input::-webkit-file-upload-button {
     overflow: visible;
     cursor: pointer;
     white-space: nowrap;
-    text-transform: none;
     -webkit-appearance: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -832,11 +849,7 @@ abbr {
 /*********************
 Browser Hacks
 *********************/
-/*
-@-ms-viewport {
-    width: device-width;
-}
-*/
+
 ::-ms-expand {
     display: none;
 }
@@ -850,15 +863,6 @@ Browser Hacks
     box-shadow: none;
 }
 
-/* Clear fix */
-hr::before,
-header::after,
-footer::before {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /* MS Edge 12-18 hack (Poor text-decoration support) */
 @supports (-ms-accelerator:true) or (-ms-ime-align:auto) {
     abbr[title] {
@@ -870,6 +874,7 @@ footer::before {
         text-decoration: none;
     }
 }
+
 
 /*********************
 Responsive elements
@@ -1000,17 +1005,7 @@ Responsive elements
     dialog[open] {
         display: none;
     }
-
-    main + footer::after {
-        content: "Please recycle this document.";
-        display: block;
-        font-size: 0.8em;
-        margin: 0.5em;
-        text-align: center;
-        color: #888;
-    }
 }
-
 `
 
 export default GlobalStyle

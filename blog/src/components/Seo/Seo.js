@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title, link, shorttitle, themecolor, aut
             subtitle
             description
             author
+            website
             themecolor
           }
         }
@@ -29,7 +30,7 @@ function SEO({ description, lang, meta, title, link, shorttitle, themecolor, aut
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaAuthor = author || site.siteMetadata.author
+  const metaAuthor = author || `${site.siteMetadata.author} | ${site.siteMetadata.website}`
   const metaShorttitle = shorttitle || site.siteMetadata.shorttitle
   const metaColor = themecolor || site.siteMetadata.themecolor
 
