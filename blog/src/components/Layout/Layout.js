@@ -74,9 +74,7 @@ const Layout = ({ children }) => {
       <Content>
         <main>{children}</main>
         <Footer>
-          © {new Date().getFullYear()} <ExtLink href="https://www.marchtwenty.com">{data.site.siteMetadata.author}</ExtLink>. Built with
-          {` `}
-          <ExtLink href="https://www.gatsbyjs.org">Gatsby</ExtLink>
+          &copy; {new Date().getFullYear()} {data.site.siteMetadata.title}. <br /><small>Site designed by <ExtLink href="https://www.marchtwenty.com">{data.site.siteMetadata.author}</ExtLink></small>
         </Footer>
       </Content>
     </ThemeProvider>

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `../.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
     title: `Celtic Treen`,
@@ -20,8 +24,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: 'bbrx7m1fl8tr',
-        accessToken: 'vi98wfKgY1b4JS9qrn3wcA3BXmZqYXwOgVbnLyl9FB8'
+        spaceId: `${process.env.SPACE_ID}`,
+        accessToken: `${process.env.ACCESS_TOKEN}`
       }
     },
     `gatsby-plugin-sitemap`,

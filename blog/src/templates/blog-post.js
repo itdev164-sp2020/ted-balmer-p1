@@ -2,16 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import { Layout } from "../components/Layout"
+import { SEO } from "../components/Seo"
 import { H1 } from "../components/Heading"
 import styled from 'styled-components'
-/*
-const H1 = styled.h1`
-    font-weight: bold;
-    text-align: center;
-    font-family: 'Georgia', 'Times New Roman', Times, serif;
-    border-bottom: 1px solid #eee;
-`
-*/
+
 const HeroImage = styled.img`
     width: 100%;
     height: 300px;
@@ -44,8 +38,8 @@ const BlogPost = ({ data }) => {
     
     return (
         <Layout>
+            <SEO title={title} />
             <H1>{title}</H1>
-            <HeroImage src={heroImage.fluid.src} alt={title} />
             <Content dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html}}></Content>
         </Layout>
     );
@@ -58,15 +52,14 @@ export const pageQuery = graphql`
         contentfulBlogPost(slug: {eq: $slug}) {
             title
             slug
+            tags
             publishDate(formatString: "MMMM DD, YYYY")
+            author {
+                name
+            }
             body {
                 childMarkdownRemark {
                     html
-                }
-            }
-            heroImage {
-                fluid {
-                    src
                 }
             }
         }

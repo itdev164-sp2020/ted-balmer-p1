@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import { Layout } from "../components/Layout"
+import { SEO } from "../components/Seo"
 import styled from 'styled-components'
 
 const H1 = styled.h1`
@@ -27,6 +28,7 @@ const About = ({ data }) => {
     
     return (
         <Layout>
+            <SEO title={title} />
             <H1>{title}</H1>
             <Content dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html }}></Content>
         </Layout>
@@ -40,7 +42,6 @@ export const pageQuery = graphql`
     contentfulPage(slug: {eq: "about"}) {
         slug
         title
-        id
         body {
             childMarkdownRemark {
                 html

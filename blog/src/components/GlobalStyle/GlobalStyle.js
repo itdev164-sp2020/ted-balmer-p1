@@ -545,7 +545,6 @@ textarea {
 [role='button'],
 [role='textbox'],
 [role='listbox'],
-input::-webkit-file-upload-button,
 button,
 input,
 select,
@@ -579,8 +578,7 @@ button,
 [role='button'],
 [type='button'],
 [type='reset'],
-[type='submit'],
-input::-webkit-file-upload-button {
+[type='submit'] {
     background-color: #eee;
     overflow: visible;
     cursor: pointer;
@@ -589,6 +587,16 @@ input::-webkit-file-upload-button {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+}
+
+input::-webkit-file-upload-button {
+    border: 1px solid #999;
+    color: inherit;
+    letter-spacing: inherit;
+    padding: 0.25em 0.375em;
+    background-color: #eee;
+    cursor: pointer;
+    -webkit-touch-callout: none;
 }
 
 [type='checkbox'],
@@ -600,6 +608,8 @@ input::-webkit-file-upload-button {
 [type='time'],
 [type='datetime-local'],
 [type='month'] {
+	min-height: 1em;
+	min-width: 1em;
     -webkit-appearance: listbox;
 }
 
@@ -882,6 +892,11 @@ Responsive elements
 
 /* Mobile Devices */
 @media only screen and (min-device-width: 320px) and (max-device-height: 1080px) and (-webkit-min-device-pixel-ratio: 2) {
+	body {
+		min-height: 100vh;
+		min-height: -webkit-fill-available;
+	}
+	
     a img {
         cursor: pointer;
     }
@@ -889,6 +904,10 @@ Responsive elements
     [aria-label]:hover::after {
         visibility: hidden;
     }
+	
+	[type='radio'] {
+		border-radius: 50%;
+	}
 }
 
 /* Phone (Portrait) and narrow screen */
@@ -987,7 +1006,7 @@ Responsive elements
     }
 
     [href] {
-        text-decoration: underline;
+        text-decoration: underline !important;
     }
 
     main [href]::after {
@@ -1000,10 +1019,6 @@ Responsive elements
     meter, 
     progress {
         border: 1px solid #666;
-    }
-    
-    dialog[open] {
-        display: none;
     }
 }
 `

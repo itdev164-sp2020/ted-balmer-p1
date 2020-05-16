@@ -3,9 +3,8 @@ import { Link } from "gatsby"
 
 import { Layout } from "../components/Layout"
 import { SEO }  from "../components/Seo"
-//import { List, ListItem } from "../components/List"
 import styled, { ThemeProvider } from 'styled-components'
-
+/*
 const Posts = styled.ul`
   list-style: none;
   padding: 0;
@@ -56,13 +55,16 @@ const PostDate = styled.div`
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Blog" />
     <Posts>
     {
       data.allContentfulBlogPost.edges.map(edge => (
         <PostItem>
           <PostDate><time>{edge.node.publishDate}</time></PostDate>
           <H2><Link to={edge.node.slug} key={edge.node.id}>{edge.node.title}</Link></H2>
+          <PostImage>
+            <img src={edge.node.heroImage.fluid.src} alt={edge.node.title} />
+          </PostImage>
           <PostExcerpt>{edge.node.body.childMarkdownRemark.excerpt}</PostExcerpt>
         </PostItem>
       ))
@@ -75,25 +77,27 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 
 export const query = graphql`
-{
-  allContentfulBlogPost {
-    edges {
-      node {
-        id
-        slug
-        title
-        tags
-        publishDate(formatString: "MMMM DD, YYYY")
-        author {
-          name
-        }
-        body {
-          childMarkdownRemark {
-            excerpt(pruneLength: 300, format: PLAIN)
+  {
+    allContentfulBlogPost {
+      edges {
+        node {
+          id
+          slug
+          title
+          publishDate(formatString: "MMMM DD, YYYY")
+          body {
+            childMarkdownRemark {
+              excerpt
+            }
+          }
+          heroImage {
+            fluid(maxWidth: 600) {
+              src
+            }
           }
         }
       }
     }
   }
-}
 `
+*/

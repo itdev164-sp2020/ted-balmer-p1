@@ -40,7 +40,7 @@ function SEO({ description, lang, meta, title, link, shorttitle, themecolor, aut
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`${site.siteMetadata.title} | %s`}
       meta={[
         {
           name: `description`,
@@ -53,10 +53,6 @@ function SEO({ description, lang, meta, title, link, shorttitle, themecolor, aut
         {
           name: `robots`,
           content: `index,follow`,
-        },
-        {
-          name: `format-detection`,
-          content: `telephone=no`,
         },
         {
           name: `apple-mobile-web-app-title`,
